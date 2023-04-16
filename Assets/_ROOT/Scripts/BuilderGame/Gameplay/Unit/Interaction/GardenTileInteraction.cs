@@ -1,3 +1,4 @@
+using System.Collections;
 using BuilderGame.Gameplay.garden;
 using BuilderGame.Gameplay.Unit.Trigger;
 using DG.Tweening;
@@ -34,13 +35,17 @@ namespace BuilderGame.Gameplay.Unit.Interaction
                 gardenPart.updateState();
                 vegetable.DOJump(transform.position, 0.3f, 1, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
                 {
-                    Vector3 defScale = transform.localScale;
-                    
                     _sequence.Kill(true);
-                    _sequence = DOTween.Sequence()
-                    .Append(transform.DOScale(defScale * 1.2f, 0.3f).SetEase(Ease.OutBounce))
-                    .OnComplete(() => transform.localScale = defScale);
                     
+                    Vector3 defScale = transform.localScale;
+                    _sequence = DOTween.Sequence()
+                    .Append(transform.DOScale(defScale * 1.2f, 0.15f).SetEase(Ease.InOutQuad))
+                    .Append(transform.DOScale(defScale, 0.15f).SetEase(Ease.InOutQuad))
+                    .OnComplete(() => {
+                        transform.localScale = defScale;
+                    });
+
+                    _unit.addMoney(gardenPart.getCost());
                     Destroy(vegetable.gameObject);
                 });
             }

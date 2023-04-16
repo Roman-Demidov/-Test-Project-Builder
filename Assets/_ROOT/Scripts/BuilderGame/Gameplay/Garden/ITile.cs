@@ -7,5 +7,6 @@ namespace BuilderGame.Gameplay.garden
         public T getState();
         public GameObject getProduct();
         public void updateState();
+        public int getCost(); 
     }
 }

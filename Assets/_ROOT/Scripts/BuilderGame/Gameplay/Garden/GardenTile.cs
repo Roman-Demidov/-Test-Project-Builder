@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BuilderGame.Gameplay.garden;
 using DG.Tweening;
+using Newtonsoft.Json.Bson;
 using UnityEngine;
 
 namespace BuilderGame.Gameplay.garden
@@ -9,6 +10,7 @@ namespace BuilderGame.Gameplay.garden
     public class GardenTile : MonoBehaviour, ITile<GardenTileState>
     {
         [SerializeField] private Vector2 _size;
+        [SerializeField] private int _cost;
         [SerializeField] private float _minTimeToRipe;
         [SerializeField] private float _maxTimeToRipe;
         [SerializeField] private List<ObjectToState> _tileStruct;
@@ -38,6 +40,8 @@ namespace BuilderGame.Gameplay.garden
             return vegetable.gameObject;
         }
 
+        public int getCost() => _cost;
+
         public void updateState()
         {
             if (_isEnableForUpdate == false)
@@ -52,11 +56,6 @@ namespace BuilderGame.Gameplay.garden
                 case GardenTileState.Planted: return;
                 case GardenTileState.Ripe: resetToGround(); break;
             }
-        }
-
-        public bool isActive()
-        {
-            return true;
         }
 
         private void resetToGround()

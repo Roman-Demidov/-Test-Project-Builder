@@ -200,7 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d01e113e4447e8a1846995b648d6fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitUI: {fileID: 0}
+  _unitUI: {fileID: 1192154393}
+  _unit: {fileID: 1827052311}
 --- !u!1 &195693868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,6 +2138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textMoney: {fileID: 195693870}
+  _pfMoneyUI: {fileID: 2679909095736973005, guid: d2719a32a190bd4428d7ed2d75551447, type: 3}
 --- !u!1 &1306948300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a3ca7a920b3874db30a6d6fb38f2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitUI: {fileID: 1192154393}
   _money: 150
 --- !u!1 &1932414137
 GameObject:
